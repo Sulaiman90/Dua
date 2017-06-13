@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <PreferenceCategory android:title="@string/pref_category_1">
+        <com.vanniktech.vntnumberpickerpreference.VNTNumberPickerPreference
+            xmlns:vntnumberpickerpreference="http://schemas.android.com/apk/res-auto"
+            android:defaultValue="@integer/pref_font_arabic_size_default"
+            android:key="@string/pref_font_arabic_size_key"
+            android:title="@string/pref_font_arabic_size_title"
+            vntnumberpickerpreference:vnt_maxValue="@integer/pref_font_arabic_size_max"
+            vntnumberpickerpreference:vnt_minValue="@integer/pref_font_arabic_size_min" />
+
+        <com.vanniktech.vntnumberpickerpreference.VNTNumberPickerPreference
+            xmlns:vntnumberpickerpreference="http://schemas.android.com/apk/res-auto"
+            android:defaultValue="@integer/pref_font_other_size_default"
+            android:key="@string/pref_font_other_size_key"
+            android:title="@string/pref_font_other_size_title"
+            vntnumberpickerpreference:vnt_maxValue="@integer/pref_font_other_size_max"
+            vntnumberpickerpreference:vnt_minValue="@integer/pref_font_other_size_min" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_category_2">
+
+    <ListPreference
+            android:defaultValue="@string/pref_lang_tamil_value"
+            android:dialogTitle="@string/pref_category_2_dailog_title"
+            android:entries="@array/pref_lang_entries"
+            android:entryValues="@array/pref_lang_values"
+            android:key="pref_lang_key"
+            android:summary="%s"
+            android:title="@string/pref_lang"
+             />
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="G:\workspace\Dua\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="08c39e6edb0fc2c78646e5cf3707baa1019e6289">
+        <dex dex="G:\workspace\Dua\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_28c1ad985efea9b2073174576980c7dd15eaf6b2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\workspace\Dua\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="G:\workspace\Dua\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.3.1_c1480e88d9a277fe95764a4cf3a0a96c3b893aba\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\workspace\Dua\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="G:\workspace\Dua\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.3.1_0cd9a35ecaaef8615ee15a50ae8aaf256dc76e54\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\workspace\Dua\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="G:\workspace\Dua\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.3.1_47c2ea2d39346eb1ac55ac9804b3a141000304d7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\workspace\Dua\app\build\intermediates\exploded-aar\com.vanniktech\vntnumberpickerpreference\1.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e05a6b83b64ee199a36d228715bbf9987edb8efa">
+        <dex dex="G:\workspace\Dua\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.vanniktech-vntnumberpickerpreference-1.0.0_79bcbaadc43e80f7a09c9f2ce55f12cc0ab4720c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\workspace\Dua\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="G:\workspace\Dua\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.3.1_5234491aa86f36ad62d0f2edfbc9f8db173145b4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\workspace\Dua\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="G:\workspace\Dua\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.3.1_ce0c249a95672504aebcb7d02984d7d7cf6d4154\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\workspace\Dua\app\build\intermediates\exploded-aar\com.mikepenz\iconics\1.3.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2c5b8bbc833970b97bc76d743399839a3468b989">
+        <dex dex="G:\workspace\Dua\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.mikepenz-iconics-1.3.0_fb107383dfc5312bdb82a5a884f25619ba19c9a2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\workspace\Dua\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="G:\workspace\Dua\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.3.1_10ac46ba587f62164468e292c0c328967f3b283c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\workspace\Dua\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="G:\workspace\Dua\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.3.1_afbdf35ab528434cbbb21b34f88cb549fc10e523\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\workspace\Dua\app\build\intermediates\exploded-aar\com.android.support\preference-v7\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="536228b2496030d983d01856aa56b4d71b57d0db">
+        <dex dex="G:\workspace\Dua\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-preference-v7-25.3.1_83867aacafa2b8bb5bd0f33f871d05fcaa46ed86\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\workspace\Dua\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="G:\workspace\Dua\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.3.1_2323de0e53465332865a34eb6a8d71e41114c781\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\workspace\Dua\app\build\intermediates\exploded-aar\com.android.support\design\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="G:\workspace\Dua\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.3.1_5d32df40ce1a294939776852336c0a3a24bb8a78\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\AndroidStudioSdk\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="G:\workspace\Dua\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.1_224f9c655e3f26764816e1a94833a44fa2f520ed\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\workspace\Dua\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="G:\workspace\Dua\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.3.1_f82669bdb82a1fe756a49f901a9f345517c1b165\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\workspace\Dua\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
+        <dex dex="G:\workspace\Dua\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-25.3.1_ed22839298ae8d9e57b755e7e12d80c7ee19a795\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\workspace\Dua\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="G:\workspace\Dua\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.3.1_630b097ee8d580567c014ed9773decc354a4cb68\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\workspace\Dua\app\build\intermediates\exploded-aar\com.android.support\transition\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="G:\workspace\Dua\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.3.1_092294d0821f3ec2a2f67e598ec0b0961ff4ca34\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\workspace\Dua\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7057ccae59301e4dc4ce88a90304822b28688cbe">
+        <dex dex="G:\workspace\Dua\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_303ba0b9244e5847e10d8df41f2e1753faf345f5\classes.dex" />
+    </item>
+
+</items>

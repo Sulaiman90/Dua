@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">பிரார்த்தனைகள்</string>
+    <string name="categories">Categories</string>
+    <string name="title_activity_dua_detail">DuaDetailActivity</string>
+    <string name="action_share_credit">via @QuranHadeesDuaApp</string>
+    <string name="action_share_title">Share Dua</string>
+
+    <string name="hadith_dua">Hadith Dua</string>
+    <string name="quran_dua">Quran Dua</string>
+    <string name="settings">Settings</string>
+    <string name="view_type">View Options</string>
+    <string name="favourites">Favourites</string>
+
+    <string name="quran_dua_favourites">Favourite Dua : Quran  </string>
+    <string name="hadith_dua_favourites">Favourite Dua :Hadith </string>
+
+    <!--     -->
+
+    <string name="PREF_FILE_SETTINGS" translatable="false">PREF_FILE_SETTINGS</string>
+
+    <string name="PREF_toViewBoth" translatable="false">toViewBoth</string>
+    <string name="PREF_toViewArabic" translatable="false">toViewArabic</string>
+    <string name="PREF_toViewTamil" translatable="false">toViewTamil</string>
+
+    <string name="pref_category_1">Fonts size</string>
+    <string name="pref_category_2">Language</string>
+
+    <string name="pref_label_arabic">Arabic only</string>
+    <string name="pref_label_tamil">Tamil only</string>
+    <string name="pref_label_arabicTamil">Arabic and Tamil</string>
+
+    <integer name="pref_font_arabic_size_default">24</integer>
+    <string name="pref_font_arabic_size_key" translatable="false">pref_font_arabic_size_key </string>
+    <string name="pref_font_arabic_size_title">Arabic Font Size</string>
+    <integer name="pref_font_arabic_size_max">30</integer>
+    <integer name="pref_font_arabic_size_min">20</integer>
+
+    <integer name="pref_font_other_size_default">14</integer>
+    <string name="pref_font_other_size_key" translatable="false">pref_font_other_size_key</string>
+    <string name="pref_font_other_size_title">Translation and Reference Font Size</string>
+    <integer name="pref_font_other_size_max">24</integer>
+    <integer name="pref_font_other_size_min">12</integer>
+
+    <string name="pref_lang">Select Language</string>
+    <string name="pref_lang_key" translatable="false">viewLanguage</string>
+    <string name="pref_category_2_dailog_title">Select Languages</string>
+
+    <string name="pref_lang_tamil_entry">Tamil</string>
+    <string name="pref_lang_english_entry">English</string>
+
+    <string name="pref_lang_tamil_value" translatable="false">ta</string>
+    <string name="pref_lang_english_value" translatable="false">en</string>
+    <string name="pref_font_arabic_size">Arabic Font Size</string>
+
+
+</resources>
