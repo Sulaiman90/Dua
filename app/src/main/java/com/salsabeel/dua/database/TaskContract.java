@@ -13,9 +13,13 @@ public class TaskContract {
 
         public static final String DUA_ID = "_id";
         public static final String ARABIC_DUA = "ar_dua";
-        public static final String ENGLISH_TRANSLATION = "en_translation";
+        public static final String ARABIC_REFERENCE = "ar_reference";
+
+        // not used
+      /*  public static final String ENGLISH_TRANSLATION = "en_translation";
+        public static final String ENGLISH_REFERENCE = "en_reference";*/
+
         public static final String TAMIL_TRANSLATION = "ta_translation";
-        public static final String ENGLISH_REFERENCE = "en_reference";
         public static final String TAMIL_REFERENCE = "ta_reference";
         public static final String GROUP_ID ="group_id";
         public static final String FAV = "fav";

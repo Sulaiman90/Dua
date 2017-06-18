@@ -1,10 +1,13 @@
 package com.salsabeel.dua.adapter;
 
+import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
 import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -12,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mikepenz.iconics.view.IconicsButton;
@@ -21,6 +25,8 @@ import com.salsabeel.dua.database.ExternalDbOpenHelper;
 import com.salsabeel.dua.database.TaskContract;
 import com.salsabeel.dua.model.Dua;
 import com.salsabeel.dua.utils.FetchPrefData;
+import com.salsabeel.dua.utils.ShareBroadcastReceiver;
+import com.salsabeel.dua.utils.Utilities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,12 +94,11 @@ public class BookmarksDuaAdapter extends RecyclerView.Adapter<BookmarksDuaAdapte
 
       //  Log.d(TAG,"onBindViewHolder "+position);
 
-        mHolder.tvDuaNumber.setText(String.valueOf(p.getDuaSerialNo()));
-        mHolder.tvDuaNumber.setVisibility(View.INVISIBLE);
-
+        mHolder.tvDuaNumber.setText(String.valueOf(p.getDuaId()));
         mHolder.tvDuaArabic.setText(p.getArabicDua());
+        mHolder.tvDuaArabicReference.setText(p.getArabicReference());
         mHolder.tvDuaTranslation.setText(p.getTamilTranslation());
-        mHolder.tvDuaReference.setText(p.getTamilReference());
+        mHolder.tvDuaTranslationReference.setText(p.getTamilReference());
 
        // Log.d(TAG,"dua id "+p.getDuaSerialNo() +" "+p.isFav());
         if (p.isFav()) {
@@ -103,49 +108,33 @@ public class BookmarksDuaAdapter extends RecyclerView.Adapter<BookmarksDuaAdapte
         }
 
         if(viewArabicAndTamil){
-            mHolder.tvDuaArabic.setVisibility(View.VISIBLE);
-            mHolder.tvDuaTranslation.setVisibility(View.VISIBLE);
+            mHolder.layoutArabic.setVisibility(View.VISIBLE);
+            mHolder.layoutTranslation.setVisibility(View.VISIBLE);
+            mHolder.layoutDivider.setVisibility(View.VISIBLE);
         }
         else if(viewArabicOnly){
-            mHolder.tvDuaArabic.setVisibility(View.VISIBLE);
-            mHolder.tvDuaTranslation.setVisibility(View.GONE);
+            mHolder.layoutArabic.setVisibility(View.VISIBLE);
+            mHolder.layoutTranslation.setVisibility(View.GONE);
+            mHolder.layoutDivider.setVisibility(View.GONE);
         }
         else if(viewTamilOnly){
-            mHolder.tvDuaArabic.setVisibility(View.GONE);
-            mHolder.tvDuaTranslation.setVisibility(View.VISIBLE);
+            mHolder.layoutArabic.setVisibility(View.GONE);
+            mHolder.layoutTranslation.setVisibility(View.VISIBLE);
+            mHolder.layoutDivider.setVisibility(View.GONE);
         }
 
         /* Log.d(TAG, p.getDuaId() + " " +p.getArabicDua()+ " " +p.getEnglishTranslation()+ " " +p.getEnglishReference()+ " " +
                     p.getTamilTranslation()+ " " +p.getTamilReference());*/
         //Log.d(TAG, p.getTamilTranslation()+ " " +p.getEnglishReference());
 
-
         final ViewHolder finalmHolder = mHolder;
 
         mHolder.shareButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View convertView) {
-                String heading = mContext.getResources().getString(R.string.app_name);
-
-                String textToShare = heading + "\n\n";
-                if(finalmHolder.tvDuaArabic.getVisibility()==View.VISIBLE){
-                    textToShare = textToShare + finalmHolder.tvDuaArabic.getText() + "\n\n";
-                }
-                if(finalmHolder.tvDuaTranslation.getVisibility()==View.VISIBLE){
-                    textToShare = textToShare + finalmHolder.tvDuaTranslation.getText() + "\n\n";
-                }
-                textToShare = textToShare + finalmHolder.tvDuaReference.getText() + "\n\n" +
-                        convertView.getResources().getString(R.string.action_share_credit);
-
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_SEND);
-                intent.putExtra(Intent.EXTRA_TEXT,textToShare);
-                intent.setType("text/plain");
-                convertView.getContext().startActivity(
-                        Intent.createChooser(
-                                intent,
-                                convertView.getResources().getString(R.string.action_share_title)
-                        )
-                );
+                Utilities.buildSharingText(mContext,
+                        finalmHolder.tvDuaArabic,finalmHolder.tvDuaArabicReference,
+                        finalmHolder.tvDuaTranslation, finalmHolder.tvDuaTranslationReference,
+                        viewArabicAndTamil, viewArabicOnly ,viewTamilOnly);
             }
         });
 
@@ -197,10 +186,16 @@ public class BookmarksDuaAdapter extends RecyclerView.Adapter<BookmarksDuaAdapte
 
         TextView tvDuaNumber;
         TextView tvDuaArabic;
-        TextView tvDuaReference;
+        TextView tvDuaArabicReference;
         TextView tvDuaTranslation;
+        TextView tvDuaTranslationReference;
         IconicsButton shareButton;
         IconicsButton favButton;
+
+        LinearLayout layoutArabic;
+        LinearLayout layoutTranslation;
+        View layoutDivider;
+
 
         private ViewHolder(View convertView) {
             super(convertView);
@@ -210,15 +205,22 @@ public class BookmarksDuaAdapter extends RecyclerView.Adapter<BookmarksDuaAdapte
             tvDuaArabic = (TextView) convertView.findViewById(R.id.txtDuaArabic);
             tvDuaArabic.setTextSize(prefArabicFontSize);
 
+            tvDuaArabicReference = (TextView) convertView.findViewById(R.id.txtDuaArabicRef);
+            tvDuaArabicReference.setTextSize(prefArabicFontSize);
+
             tvDuaTranslation = (TextView) convertView.findViewById(R.id.txtDuaTranslation);
             tvDuaTranslation.setTextSize(prefOtherFontSize);
 
-            tvDuaReference = (TextView) convertView.findViewById(R.id.txtDuaReference);
-            tvDuaReference.setTextSize(prefOtherFontSize);
+            tvDuaTranslationReference = (TextView) convertView.findViewById(R.id.txtDuaTranslationReference);
+            tvDuaTranslationReference.setTextSize(prefOtherFontSize);
 
             shareButton = (IconicsButton) convertView.findViewById(R.id.share_btn);
             favButton = (IconicsButton) convertView.findViewById(R.id.fav_btn);
 
+            layoutArabic = (LinearLayout) convertView.findViewById(R.id.arabic_layout);
+            layoutTranslation = (LinearLayout) convertView.findViewById(R.id.translation_layout);
+
+            layoutDivider = (View) convertView.findViewById(R.id.layout_divider);
         }
     }
 }

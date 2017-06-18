@@ -47,7 +47,7 @@
                  android:layout_centerVertical="true"
                  android:background="?attr/selectableItemBackgroundBorderless"
                  android:text="{faw-star-o}"
-                 android:textColor="@color/primary_dark_material_light"
+                 android:textColor="@color/black"
                  android:textSize="24sp"
                  />
 
@@ -60,7 +60,7 @@
                  android:background="?attr/selectableItemBackgroundBorderless"
                  android:text="{gmd-share}"
                  android:textAllCaps="false"
-                 android:textColor="@color/primary_dark_material_light"
+                 android:textColor="@color/black"
                  android:textSize="24sp"
                  />
 
@@ -73,56 +73,87 @@
                 android:layout_marginRight="1dp"
                 android:background="@color/card_divider_gray" />
 
-            <TextView
-                android:id="@+id/txtDuaArabic"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:lineSpacingExtra="15dp"
-                android:paddingTop="10dp"
-                android:text="Arabic Dua"
-                android:textColor="@color/primary_dark_material_light"
-                android:textSize="24sp" />
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             android:id="@+id/arabic_layout"
+             >
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
-                android:background="@color/card_divider_gray" />
+             <TextView
+                 android:id="@+id/txtDuaArabic"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:lineSpacingExtra="15dp"
+                 android:paddingTop="10dp"
+                 android:text="Arabic Dua"
+                 android:textColor="@color/black"
+                 android:textSize="24sp" />
 
-            <TextView
-                android:id="@+id/txtDuaTranslation"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingBottom="15dp"
-                android:paddingTop="15dp"
-                android:text="Dua Translation"
-                android:textColor="@color/primary_dark_material_light"
-                android:textSize="16sp" />
+             <View
+                 android:layout_width="match_parent"
+                 android:layout_height="1dp"
+                 android:layout_marginLeft="1dp"
+                 android:layout_marginRight="1dp"
+                 android:background="@color/card_divider_gray" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
-                android:background="@color/card_divider_gray" />
+             <TextView
+                 android:id="@+id/txtDuaArabicRef"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:lineSpacingExtra="15dp"
+                 android:paddingTop="10dp"
+                 android:text="Arabic Dua Reference"
+                 android:textColor="@color/black"
+                 android:textSize="24sp"
+                 />
 
-            <TextView
-                android:id="@+id/txtDuaReference"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingBottom="15dp"
-                android:paddingTop="15dp"
-                android:text="Dua Reference"
-                android:textColor="@color/primary_dark_material_light"
-                android:textSize="16sp" />
+         </LinearLayout>
 
-          <!--  <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
-                android:background="@color/card_divider_gray" />-->
+         <View
+             android:layout_width="match_parent"
+             android:layout_height="1dp"
+             android:layout_marginLeft="1dp"
+             android:layout_marginRight="1dp"
+             android:id="@+id/layout_divider"
+             android:background="@color/card_divider_gray" />
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             android:id="@+id/translation_layout"
+             >
+
+             <TextView
+                 android:id="@+id/txtDuaTranslation"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:paddingBottom="15dp"
+                 android:paddingTop="15dp"
+                 android:text="Dua Translation"
+                 android:textColor="@color/black"
+                 android:textSize="16sp" />
+
+             <View
+                 android:layout_width="match_parent"
+                 android:layout_height="1dp"
+                 android:layout_marginLeft="1dp"
+                 android:layout_marginRight="1dp"
+                 android:background="@color/card_divider_gray" />
+
+             <TextView
+                 android:id="@+id/txtDuaTranslationReference"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:paddingBottom="15dp"
+                 android:paddingTop="15dp"
+                 android:text="Dua Reference"
+                 android:textColor="@color/black"
+                 android:textSize="16sp" />
+
+         </LinearLayout>
+
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </FrameLayout>

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">பிரார்த்தனைகள்</string>
-    <string name="categories">பிரிவுகள்</string>
+    <string name="categories">பிரிவை தேர்ந்தெடு</string>
     <string name="title_activity_dua_detail">பிரார்த்தனைகள்</string>
 
     <string name="hadith_dua">ஹதீஸ் துஆக்கள்</string>
     <string name="quran_dua">திருக்குர்ஆன் துஆக்கள்</string>
     <string name="settings">அமைப்புகள்</string>
-    <string name="view_type">நோக்கும் விருப்பங்கள்</string>
+    <string name="view_type">பார்க்கும் விருப்பங்கள்</string>
     <string name="favourites">பிடித்தவை</string>
 
     <string name="pref_category_1">எழுத்துக்கள் அளவு</string>
@@ -22,6 +21,6 @@
     <string name="pref_lang">மொழி தேர்ந்தெடு</string>
     <string name="pref_font_arabic_size_title">அரபு எழுத்துக்கள் அளவு</string>
     <string name="pref_font_arabic_size">அரபு எழுத்துக்கள் அளவு</string>
-    <string name="action_share_credit">via @திருக்குர்ஆன் ஹதீஸ் பிரார்த்தனைகள்</string>
-    <string name="action_share_title">பிரார்த்தனை பகிர்</string>
+    <string name="hadith_dua_favourites">பிடித்தவை : ஹதீஸ்</string>
+    <string name="quran_dua_favourites">பிடித்தவை : திருக்குர்ஆன்</string>
 </resources>

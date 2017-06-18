@@ -17,6 +17,7 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -36,8 +37,11 @@ public class MainActivity extends AppCompatActivity {
     public Boolean toViewArabic;
     public Boolean toViewTamil;
     ListView listView;
-    TextView tvQuran;
-    TextView tvHadith;
+    private Button tvQuran;
+    private Button tvHadith;
+
+    SharedPreferences sharedPreferences;
+    private String currentLang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +49,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setTitle(getResources().getString(R.string.app_name));
 
-        tvQuran = (TextView) findViewById(R.id.quranDua);
+        sharedPreferences  = PreferenceManager.getDefaultSharedPreferences(this);
+        currentLang = sharedPreferences.getString("pref_lang_key","ta");
+
+        tvQuran = (Button) findViewById(R.id.quranDua);
         tvQuran.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        tvHadith = (TextView) findViewById(R.id.hadithDua);
+        tvHadith = (Button) findViewById(R.id.hadithDua);
         tvHadith.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +70,18 @@ public class MainActivity extends AppCompatActivity {
 
         checkPrefToShowRadioGroup();
 
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        // put your code here...
+        Log.d(TAG,"resumed dua detail currentLang "+currentLang);
+        String oldLanguage = currentLang;
+        currentLang = sharedPreferences.getString("pref_lang_key","ta");
+        if (!oldLanguage.equals(currentLang)){
+            recreate();
+        }
     }
 
     @Override
@@ -80,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-       // getMenuInflater().inflate(R.menu.menu_bookmarks,menu);
+        getMenuInflater().inflate(R.menu.menu_main,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -91,8 +110,8 @@ public class MainActivity extends AppCompatActivity {
             onBackPressed();
             return true;
         }
-        else if(item.getItemId()==R.id.action_favourite){
-            Intent intent = new Intent(this, BookMarksActivity.class);
+        else if(item.getItemId()==R.id.action_settings){
+            Intent intent = new Intent(this, PreferencesActivity.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.preference.PreferenceManager;
@@ -24,6 +25,7 @@ import com.salsabeel.dua.database.ExternalDbOpenHelper;
 import com.salsabeel.dua.database.TaskContract.TaskEntry;
 import com.salsabeel.dua.model.Dua;
 import com.salsabeel.dua.utils.ContextWrapper;
+import com.salsabeel.dua.utils.Utilities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +40,10 @@ public class BookMarksActivity extends AppCompatActivity {
     private BookmarksDuaAdapter mAdapter;
     private ArrayList<Dua> results = new ArrayList<>();
     private int categoryNo = 0;
+
+    private static final String LIST_STATE = "listState";
+    private Parcelable mListState = null;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +61,36 @@ public class BookMarksActivity extends AppCompatActivity {
         }
 
         Log.d(TAG,"categoryNo "+categoryNo);
-       // setTitle(getResources().getString(R.string.favourites));
+
         recyclerView = (RecyclerView) findViewById(R.id.rVFavourites);
+
+        mLayoutManager = new LinearLayoutManager(getApplicationContext());
+
         results = getBookmarkedDuas();
+
         setBookmarksDuaAdapter(results);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mListState = recyclerView.getLayoutManager().onSaveInstanceState();
+        outState.putParcelable(LIST_STATE, mListState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mListState = savedInstanceState.getParcelable(LIST_STATE);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mListState != null){
+            recyclerView.getLayoutManager().onRestoreInstanceState(mListState);
+        }
+        mListState = null;
     }
 
     @Override
@@ -86,25 +118,14 @@ public class BookMarksActivity extends AppCompatActivity {
             onBackPressed();
             return true;
         }
-        else if(item.getItemId()==R.id.action_settings){
-            Intent intent = new Intent(this, PreferencesActivity.class);
-            startActivityForResult(intent, 1);
-        }
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d(TAG,"onActivityResult "+resultCode);
-        if (requestCode == 1) {
-            if(resultCode == Activity.RESULT_OK){
-                //
-            }
-            if (resultCode == Activity.RESULT_CANCELED) {
-                Log.d(TAG,"Adapter reloaded ");
-                 setBookmarksDuaAdapter(results);;
-            }
+        if(requestCode == Utilities.REQUEST_CODE_MY_PICK) {
+            Utilities.shareDua(data);
         }
     }
 
@@ -123,13 +144,12 @@ public class BookMarksActivity extends AppCompatActivity {
                     duaNo++;
                     int id = cursor.getInt(cursor.getColumnIndex(TaskEntry.DUA_ID));
                     String arabicDua = cursor.getString(cursor.getColumnIndex(TaskEntry.ARABIC_DUA));
-                    String englishTranslation =  cursor.getString(cursor.getColumnIndex(TaskEntry.ENGLISH_TRANSLATION));
+                    String arabicRef =  cursor.getString(cursor.getColumnIndex(TaskEntry.ARABIC_REFERENCE));
                     String tamilTranslation =  cursor.getString(cursor.getColumnIndex(TaskEntry.TAMIL_TRANSLATION));
-                    String englishRef =  cursor.getString(cursor.getColumnIndex(TaskEntry.ENGLISH_REFERENCE));
                     String tamilRef =  cursor.getString(cursor.getColumnIndex(TaskEntry.TAMIL_REFERENCE));
                     boolean fav = cursor.getInt(cursor.getColumnIndex(TaskEntry.FAV)) == 1;
-                    results.add(new Dua(id, duaNo, arabicDua, englishTranslation, tamilTranslation, englishRef,tamilRef,fav));
-                    Log.d(TAG,""+id);
+                    results.add(new Dua(id, duaNo, arabicDua, arabicRef, tamilTranslation,tamilRef,fav));
+                   // Log.d(TAG,""+id);
                 } while (cursor.moveToNext());
             }
         } finally {
@@ -142,7 +162,6 @@ public class BookMarksActivity extends AppCompatActivity {
 
     private void setBookmarksDuaAdapter(List results){
         mAdapter = new BookmarksDuaAdapter(this,results);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);

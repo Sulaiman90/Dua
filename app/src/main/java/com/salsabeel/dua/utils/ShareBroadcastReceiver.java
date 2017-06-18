@@ -23,7 +23,7 @@ public class ShareBroadcastReceiver extends BroadcastReceiver {
         Log.d(TAG, "Received intent after selection: "+intent.getExtras().get(Intent.EXTRA_CHOSEN_COMPONENT));
         Bundle extras = intent.getExtras();
         String sharedText = extras.getString("textToShare");
-        Log.d(TAG,"sharedText "+ sharedText);
+       // Log.d(TAG,"sharedText "+ sharedText);
 
         if(selectedApp.equals("ComponentInfo{com.whatsapp/com.whatsapp.ContactPicker}")) {
             try {

@@ -32,7 +32,7 @@
         android:visibility="invisible"
        />
     
-    <TextView
+    <Button
         android:id="@+id/quranDua"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,6 +40,9 @@
         android:layout_centerHorizontal="true"
         android:text="@string/quran_dua"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="@drawable/button_selector"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
         />
 
     <View
@@ -52,7 +55,7 @@
         android:background="@android:color/darker_gray"
         />
 
-    <TextView
+    <Button
         android:id="@+id/hadithDua"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,6 +63,9 @@
         android:layout_centerHorizontal="true"
         android:text="@string/hadith_dua"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="@drawable/button_selector"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
         />
 
     <View
@@ -80,6 +86,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/mainAct_padding_bottom"
         android:text="@string/view_type"
+        android:paddingBottom="5dp"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"/>
 
     <RadioGroup
@@ -118,8 +125,6 @@
             />
 
     </RadioGroup>
-
-
 
     <!-- <ListView
          android:id="@+id/categoriesListView"

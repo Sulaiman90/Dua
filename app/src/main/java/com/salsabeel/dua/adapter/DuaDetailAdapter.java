@@ -1,14 +1,17 @@
 package com.salsabeel.dua.adapter;
 
+import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ResolveInfo;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,14 +19,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mikepenz.iconics.view.IconicsButton;
+import com.salsabeel.dua.BookMarksActivity;
 import com.salsabeel.dua.R;
 import com.salsabeel.dua.database.*;
 import com.salsabeel.dua.model.Dua;
 import com.salsabeel.dua.utils.FetchPrefData;
 import com.salsabeel.dua.utils.ShareBroadcastReceiver;
+import com.salsabeel.dua.utils.Utilities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,14 +107,22 @@ public class DuaDetailAdapter extends BaseAdapter {
             mHolder.tvDuaArabic = (TextView) convertView.findViewById(R.id.txtDuaArabic);
             mHolder.tvDuaArabic.setTextSize(prefArabicFontSize);
 
+            mHolder.tvDuaArabicReference = (TextView) convertView.findViewById(R.id.txtDuaArabicRef);
+            mHolder.tvDuaArabicReference.setTextSize(prefArabicFontSize);
+
             mHolder.tvDuaTranslation = (TextView) convertView.findViewById(R.id.txtDuaTranslation);
             mHolder.tvDuaTranslation.setTextSize(prefOtherFontSize);
 
-            mHolder.tvDuaReference = (TextView) convertView.findViewById(R.id.txtDuaReference);
-            mHolder.tvDuaReference.setTextSize(prefOtherFontSize);
+            mHolder.tvDuaTranslationReference = (TextView) convertView.findViewById(R.id.txtDuaTranslationReference);
+            mHolder.tvDuaTranslationReference.setTextSize(prefOtherFontSize);
 
             mHolder.shareButton = (IconicsButton) convertView.findViewById(R.id.share_btn);
             mHolder.favButton = (IconicsButton) convertView.findViewById(R.id.fav_btn);
+
+            mHolder.layoutArabic = (LinearLayout) convertView.findViewById(R.id.arabic_layout);
+            mHolder.layoutTranslation = (LinearLayout) convertView.findViewById(R.id.translation_layout);
+
+            mHolder.layoutDivider = (View) convertView.findViewById(R.id.layout_divider);
 
             convertView.setTag(mHolder);
         }
@@ -117,46 +132,31 @@ public class DuaDetailAdapter extends BaseAdapter {
 
         mHolder.shareButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View convertView) {
-                String heading = mContext.getResources().getString(R.string.app_name);
-                 /*   String textToShare = heading + "\n\n" +
-                            mHolder.tvDuaArabic.getText() + "\n\n" +
-                            mHolder.tvDuaTranslation.getText() + "\n\n" +
-                            mHolder.tvDuaReference.getText() + "\n\n" +
-                            convertView.getResources().getString(R.string.action_share_credit);*/
 
+                Utilities.buildSharingText(mContext,mHolder.tvDuaArabic,mHolder.tvDuaArabicReference,mHolder.tvDuaTranslation,
+                                mHolder.tvDuaTranslationReference,viewArabicAndTamil, viewArabicOnly ,viewTamilOnly);
+                //Log.d(TAG,"share button clicked");
+               /* String heading = mContext.getResources().getString(R.string.app_name);
                 String textToShare = heading + "\n\n";
-                if(mHolder.tvDuaArabic.getVisibility()==View.VISIBLE){
-                    textToShare = textToShare + mHolder.tvDuaArabic.getText() + "\n\n";
+                if(viewArabicAndTamil){
+                    textToShare = textToShare + mHolder.tvDuaArabic.getText() + "\n\n" +
+                                 mHolder.tvDuaArabicReference.getText() + "\n\n" +
+                                 mHolder.tvDuaTranslation.getText() + "\n\n" +
+                                 mHolder.tvDuaTranslationReference.getText() + "\n\n";
                 }
-                if(mHolder.tvDuaTranslation.getVisibility()==View.VISIBLE){
-                    textToShare = textToShare + mHolder.tvDuaTranslation.getText() + "\n\n";
+                else if(viewArabicOnly){
+                    textToShare = textToShare + mHolder.tvDuaArabic.getText() + "\n\n" +
+                                     mHolder.tvDuaArabicReference.getText() + "\n\n" ;
                 }
-                textToShare = textToShare + mHolder.tvDuaReference.getText() + "\n\n" +
-                        convertView.getResources().getString(R.string.action_share_credit);
+                else if(viewTamilOnly){
+                    textToShare = textToShare + mHolder.tvDuaTranslation.getText() + "\n\n" +
+                                  mHolder.tvDuaTranslationReference.getText() + "\n\n";
+                }
 
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_SEND);
-                intent.putExtra(Intent.EXTRA_TEXT,textToShare);
-                intent.setType("text/plain");
-                if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP_MR1) {
-                    Intent receiver = new Intent(convertView.getContext(), ShareBroadcastReceiver.class)
-                            .putExtra("textToShare", textToShare);
-                    PendingIntent pendingIntent = PendingIntent.getBroadcast(convertView.getContext(), 0,
-                            receiver, PendingIntent.FLAG_UPDATE_CURRENT);
-                    Intent chooser = Intent.createChooser(
-                            intent,
-                            convertView.getResources().getString(R.string.action_share_title),
-                            pendingIntent.getIntentSender());
-                    convertView.getContext().startActivity(chooser);
-                }
-                else{
-                    convertView.getContext().startActivity(
-                            Intent.createChooser(
-                                    intent,
-                                    convertView.getResources().getString(R.string.action_share_title)
-                            )
-                    );
-                }
+                textToShare = textToShare + convertView.getResources().getString(R.string.action_share_credit);
+
+               // textToShare = textToShare + "\n\n" +PLAYSTORE_LINK;*/
+
             }
         });
 
@@ -197,10 +197,12 @@ public class DuaDetailAdapter extends BaseAdapter {
         });
 
         if (p != null) {
-            mHolder.tvDuaNumber.setText(String.valueOf(p.getDuaSerialNo()));
+            mHolder.tvDuaNumber.setText(String.valueOf(p.getDuaId()));
             mHolder.tvDuaArabic.setText(p.getArabicDua());
+            mHolder.tvDuaArabicReference.setText(p.getArabicReference());
             mHolder.tvDuaTranslation.setText(p.getTamilTranslation());
-            mHolder.tvDuaReference.setText(p.getTamilReference());
+            mHolder.tvDuaTranslationReference.setText(p.getTamilReference());
+
             if (p.isFav()) {
                 mHolder.favButton.setText("{faw-star}");
             } else {
@@ -208,16 +210,19 @@ public class DuaDetailAdapter extends BaseAdapter {
             }
 
             if(viewArabicAndTamil){
-                mHolder.tvDuaArabic.setVisibility(View.VISIBLE);
-                mHolder.tvDuaTranslation.setVisibility(View.VISIBLE);
+                mHolder.layoutArabic.setVisibility(View.VISIBLE);
+                mHolder.layoutTranslation.setVisibility(View.VISIBLE);
+                mHolder.layoutDivider.setVisibility(View.VISIBLE);
             }
             else if(viewArabicOnly){
-                mHolder.tvDuaArabic.setVisibility(View.VISIBLE);
-                mHolder.tvDuaTranslation.setVisibility(View.GONE);
+                mHolder.layoutArabic.setVisibility(View.VISIBLE);
+                mHolder.layoutTranslation.setVisibility(View.GONE);
+                mHolder.layoutDivider.setVisibility(View.GONE);
             }
             else if(viewTamilOnly){
-                mHolder.tvDuaArabic.setVisibility(View.GONE);
-                mHolder.tvDuaTranslation.setVisibility(View.VISIBLE);
+                mHolder.layoutArabic.setVisibility(View.GONE);
+                mHolder.layoutDivider.setVisibility(View.GONE);
+                mHolder.layoutTranslation.setVisibility(View.VISIBLE);
             }
 
            /* Log.d(TAG, p.getDuaId() + " " +p.getArabicDua()+ " " +p.getEnglishTranslation()+ " " +p.getEnglishReference()+ " " +
@@ -228,12 +233,49 @@ public class DuaDetailAdapter extends BaseAdapter {
         return convertView;
     }
 
+    /*public void doSocialShare(String title, String text){
+       // Log.d(TAG,"doSocialShare called");
+        // First search for compatible apps with sharing (Intent.ACTION_SEND)
+        List<Intent> targetedShareIntents = new ArrayList<Intent>();
+        Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        // Set title and text to share when the user selects an option.
+        shareIntent.putExtra(Intent.EXTRA_TITLE, title);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, text);
+        List<ResolveInfo> resInfo = mContext.getPackageManager().queryIntentActivities(shareIntent, 0);
+        if (!resInfo.isEmpty()) {
+            for (ResolveInfo info : resInfo) {
+                Intent targetedShare = new Intent(android.content.Intent.ACTION_SEND);
+                targetedShare.setType("text/plain"); // put here your mime type
+                targetedShare.setPackage(info.activityInfo.packageName.toLowerCase());
+                targetedShareIntents.add(targetedShare);
+            }
+            // Then show the ACTION_PICK_ACTIVITY to let the user select it
+            Intent intentPick = new Intent();
+            intentPick.setAction(Intent.ACTION_PICK_ACTIVITY);
+            // Set the title of the dialog
+            intentPick.putExtra(Intent.EXTRA_TITLE, title);
+            intentPick.putExtra(Intent.EXTRA_INTENT, shareIntent);
+          //  intentPick.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray());
+            // Call StartActivityForResult so we can get the app name selected by the user
+            ((Activity) mContext).startActivityForResult(intentPick, REQUEST_CODE_MY_PICK);
+        }
+    }*/
+
 
     public static class ViewHolder {
         TextView tvDuaNumber;
         TextView tvDuaArabic;
-        TextView tvDuaReference;
+        TextView tvDuaArabicReference;
+
         TextView tvDuaTranslation;
+        TextView tvDuaTranslationReference;
+
+        LinearLayout layoutArabic;
+        LinearLayout layoutTranslation;
+
+        View layoutDivider;
+
         IconicsButton shareButton;
         IconicsButton favButton;
     }

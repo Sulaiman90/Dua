@@ -45,13 +45,6 @@ public class PreferencesActivity extends AppCompatActivity {
         super.attachBaseContext(context);
     }
 
-    /*@Override
-    public boolean onSupportNavigateUp() {
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        return true;
-    }*/
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();

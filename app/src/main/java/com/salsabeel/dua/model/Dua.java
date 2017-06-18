@@ -13,17 +13,25 @@ public class Dua {
     private int groupId;
     private boolean fav;
     private int duaSerialNo;
+    private String arabicReference;
 
-    public Dua (int duaId, int duaSerialNo ,String arabicDua, String englishTranslation, String tamilTranslation,
-                String englishReference, String tamilReference ,boolean fav){
+    public Dua (int duaId, int duaSerialNo ,String arabicDua, String arabicReference, String tamilTranslation,
+                String tamilReference ,boolean fav){
         this.duaId = duaId;
         this.duaSerialNo = duaSerialNo;
         this.arabicDua = arabicDua;
-        this.englishTranslation = englishTranslation;
+        this.arabicReference = arabicReference;
         this.tamilTranslation = tamilTranslation;
-        this.englishReference = englishReference;
         this.tamilReference = tamilReference;
         this.fav = fav;
+    }
+
+    public String getArabicReference() {
+        return arabicReference;
+    }
+
+    public void setArabicReference(String arabicReference) {
+        this.arabicReference = arabicReference;
     }
 
     public int getDuaSerialNo() {

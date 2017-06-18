@@ -28,23 +28,6 @@ public class FetchPrefData {
 
     }
 
-    @SuppressWarnings("deprecation")
-    public static void setLanguage(Context context, String languageCode){
-        Locale myLocale;
-        myLocale = new Locale(languageCode);
-        Locale.setDefault(myLocale);
-        Resources resources = context.getResources();
-        Configuration config = resources.getConfiguration();
-        config.setLocale(myLocale);
-        //resources.updateConfiguration(config, resources.getDisplayMetrics());
-        context.createConfigurationContext(config);
-       /* myLocale = new Locale("ta");
-        Locale.setDefault(myLocale);
-        android.content.res.Configuration config = new android.content.res.Configuration();
-        config.locale = myLocale;*/
-        //context.getResources().updateConfiguration(config,resources.getDisplayMetrics());
-    }
-
     public Boolean isArabicAndTamilView() {
         return sharedPrefs.getBoolean(mContext.getResources().getString(R.string.PREF_toViewBoth), true);
     }

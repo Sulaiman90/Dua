@@ -133,8 +133,8 @@ public class ExternalDbOpenHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
 
     public Cursor query(int category){
-        String[] columns = new String[] { TaskEntry.DUA_ID, TaskEntry.ARABIC_DUA, TaskEntry.ENGLISH_TRANSLATION,
-                TaskEntry.TAMIL_TRANSLATION,TaskEntry.ENGLISH_REFERENCE , TaskEntry.TAMIL_REFERENCE,
+        String[] columns = new String[] { TaskEntry.DUA_ID, TaskEntry.ARABIC_DUA, TaskEntry.ARABIC_REFERENCE,
+                TaskEntry.TAMIL_TRANSLATION, TaskEntry.TAMIL_REFERENCE,
                 TaskEntry.FAV };
          return database.query(TaskEntry.TABLE_NAME,
                       columns,
@@ -143,8 +143,8 @@ public class ExternalDbOpenHelper extends SQLiteOpenHelper {
     }
 
     public Cursor queryBookmarkedDuas(int category){
-        String[] columns = new String[] { TaskEntry.DUA_ID, TaskEntry.ARABIC_DUA, TaskEntry.ENGLISH_TRANSLATION,
-                TaskEntry.TAMIL_TRANSLATION,TaskEntry.ENGLISH_REFERENCE , TaskEntry.TAMIL_REFERENCE,
+        String[] columns = new String[] { TaskEntry.DUA_ID, TaskEntry.ARABIC_DUA, TaskEntry.ARABIC_REFERENCE,
+                TaskEntry.TAMIL_TRANSLATION, TaskEntry.TAMIL_REFERENCE,
                 TaskEntry.FAV };
         return database.query(TaskEntry.TABLE_NAME,
                 columns,

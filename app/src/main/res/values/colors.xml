@@ -5,4 +5,11 @@
     <color name="colorAccent">#03A9F4</color>
 
     <color name="card_divider_gray">#BDBDBD</color>
+
+    <color name="black">#c8000000</color>
+
+    <color name="colorBlack">#c8000000</color>
+
+    <color name="buttonSelected">@color/colorPrimary</color>
+    <color name="buttonUnselected">@color/colorPrimaryDark</color>
 </resources>

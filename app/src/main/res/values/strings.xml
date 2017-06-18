@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">பிரார்த்தனைகள்</string>
-    <string name="categories">Categories</string>
+    <string name="app_name" translatable="false">பிரார்த்தனை</string>
+    <string name="categories">Select categories</string>
     <string name="title_activity_dua_detail">DuaDetailActivity</string>
-    <string name="action_share_credit">via @QuranHadeesDuaApp</string>
-    <string name="action_share_title">Share Dua</string>
+    <string name="action_share_credit" translatable="false">via @பிரார்த்தனை</string>
+    <string name="action_share_title" translatable="false">Share Dua</string>
 
     <string name="hadith_dua">Hadith Dua</string>
     <string name="quran_dua">Quran Dua</string>
@@ -29,13 +29,16 @@
     <string name="pref_label_tamil">Tamil only</string>
     <string name="pref_label_arabicTamil">Arabic and Tamil</string>
 
-    <integer name="pref_font_arabic_size_default">24</integer>
+    <integer name="pref_font_arabic_size_default">26</integer>
+    <integer name="pref_font_other_size_default">16</integer>
+
+
     <string name="pref_font_arabic_size_key" translatable="false">pref_font_arabic_size_key </string>
     <string name="pref_font_arabic_size_title">Arabic Font Size</string>
     <integer name="pref_font_arabic_size_max">30</integer>
     <integer name="pref_font_arabic_size_min">20</integer>
 
-    <integer name="pref_font_other_size_default">14</integer>
+
     <string name="pref_font_other_size_key" translatable="false">pref_font_other_size_key</string>
     <string name="pref_font_other_size_title">Translation and Reference Font Size</string>
     <integer name="pref_font_other_size_max">24</integer>
