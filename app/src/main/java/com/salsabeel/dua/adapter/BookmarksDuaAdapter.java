@@ -206,13 +206,13 @@ public class BookmarksDuaAdapter extends RecyclerView.Adapter<BookmarksDuaAdapte
             tvDuaArabic.setTextSize(prefArabicFontSize);
 
             tvDuaArabicReference = (TextView) convertView.findViewById(R.id.txtDuaArabicRef);
-            tvDuaArabicReference.setTextSize(prefArabicFontSize);
+            tvDuaArabicReference.setTextSize(prefArabicFontSize - Utilities.ARABIC_DUA_REF_FONT_SIZE);
 
             tvDuaTranslation = (TextView) convertView.findViewById(R.id.txtDuaTranslation);
             tvDuaTranslation.setTextSize(prefOtherFontSize);
 
             tvDuaTranslationReference = (TextView) convertView.findViewById(R.id.txtDuaTranslationReference);
-            tvDuaTranslationReference.setTextSize(prefOtherFontSize);
+            tvDuaTranslationReference.setTextSize(prefOtherFontSize - Utilities.TRANSLATION_DUA_REF_FONT_SIZE);
 
             shareButton = (IconicsButton) convertView.findViewById(R.id.share_btn);
             favButton = (IconicsButton) convertView.findViewById(R.id.fav_btn);

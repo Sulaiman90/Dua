@@ -23,4 +23,5 @@
     <string name="pref_font_arabic_size">அரபு எழுத்துக்கள் அளவு</string>
     <string name="hadith_dua_favourites">பிடித்தவை : ஹதீஸ்</string>
     <string name="quran_dua_favourites">பிடித்தவை : திருக்குர்ஆன்</string>
+    <string name="about">இது பற்றி</string>
 </resources>

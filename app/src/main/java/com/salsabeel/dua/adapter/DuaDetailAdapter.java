@@ -108,13 +108,13 @@ public class DuaDetailAdapter extends BaseAdapter {
             mHolder.tvDuaArabic.setTextSize(prefArabicFontSize);
 
             mHolder.tvDuaArabicReference = (TextView) convertView.findViewById(R.id.txtDuaArabicRef);
-            mHolder.tvDuaArabicReference.setTextSize(prefArabicFontSize);
+            mHolder.tvDuaArabicReference.setTextSize(prefArabicFontSize - Utilities.ARABIC_DUA_REF_FONT_SIZE);
 
             mHolder.tvDuaTranslation = (TextView) convertView.findViewById(R.id.txtDuaTranslation);
             mHolder.tvDuaTranslation.setTextSize(prefOtherFontSize);
 
             mHolder.tvDuaTranslationReference = (TextView) convertView.findViewById(R.id.txtDuaTranslationReference);
-            mHolder.tvDuaTranslationReference.setTextSize(prefOtherFontSize);
+            mHolder.tvDuaTranslationReference.setTextSize(prefOtherFontSize - Utilities.TRANSLATION_DUA_REF_FONT_SIZE);
 
             mHolder.shareButton = (IconicsButton) convertView.findViewById(R.id.share_btn);
             mHolder.favButton = (IconicsButton) convertView.findViewById(R.id.fav_btn);
@@ -132,31 +132,8 @@ public class DuaDetailAdapter extends BaseAdapter {
 
         mHolder.shareButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View convertView) {
-
                 Utilities.buildSharingText(mContext,mHolder.tvDuaArabic,mHolder.tvDuaArabicReference,mHolder.tvDuaTranslation,
                                 mHolder.tvDuaTranslationReference,viewArabicAndTamil, viewArabicOnly ,viewTamilOnly);
-                //Log.d(TAG,"share button clicked");
-               /* String heading = mContext.getResources().getString(R.string.app_name);
-                String textToShare = heading + "\n\n";
-                if(viewArabicAndTamil){
-                    textToShare = textToShare + mHolder.tvDuaArabic.getText() + "\n\n" +
-                                 mHolder.tvDuaArabicReference.getText() + "\n\n" +
-                                 mHolder.tvDuaTranslation.getText() + "\n\n" +
-                                 mHolder.tvDuaTranslationReference.getText() + "\n\n";
-                }
-                else if(viewArabicOnly){
-                    textToShare = textToShare + mHolder.tvDuaArabic.getText() + "\n\n" +
-                                     mHolder.tvDuaArabicReference.getText() + "\n\n" ;
-                }
-                else if(viewTamilOnly){
-                    textToShare = textToShare + mHolder.tvDuaTranslation.getText() + "\n\n" +
-                                  mHolder.tvDuaTranslationReference.getText() + "\n\n";
-                }
-
-                textToShare = textToShare + convertView.getResources().getString(R.string.action_share_credit);
-
-               // textToShare = textToShare + "\n\n" +PLAYSTORE_LINK;*/
-
             }
         });
 

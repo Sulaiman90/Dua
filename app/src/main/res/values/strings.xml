@@ -8,8 +8,11 @@
     <string name="hadith_dua">Hadith Dua</string>
     <string name="quran_dua">Quran Dua</string>
     <string name="settings">Settings</string>
+    <string name="about">About</string>
     <string name="view_type">View Options</string>
     <string name="favourites">Favourites</string>
+
+    <string name="about_text" translatable="false">Made for DarulHuda, Chennai.</string>
 
     <string name="quran_dua_favourites">Favourite Dua : Quran  </string>
     <string name="hadith_dua_favourites">Favourite Dua :Hadith </string>
@@ -29,8 +32,8 @@
     <string name="pref_label_tamil">Tamil only</string>
     <string name="pref_label_arabicTamil">Arabic and Tamil</string>
 
-    <integer name="pref_font_arabic_size_default">26</integer>
-    <integer name="pref_font_other_size_default">16</integer>
+    <integer name="pref_font_arabic_size_default">24</integer>
+    <integer name="pref_font_other_size_default">20</integer>
 
 
     <string name="pref_font_arabic_size_key" translatable="false">pref_font_arabic_size_key </string>

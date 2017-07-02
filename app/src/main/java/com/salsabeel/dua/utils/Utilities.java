@@ -34,6 +34,12 @@ public class Utilities {
 
     private static final String PLAYSTORE_LINK = "https://play.google.com/store/apps/details?id=com.salsabeel.dua";
 
+    public static final int ARABIC_DUA_REF_FONT_SIZE = 7;
+
+    public static final int TRANSLATION_DUA_REF_FONT_SIZE = 5;
+    // this value is used to show the difference b/w the 2 (substract this from preference value)
+
+
     public static void checkVersionAndShareDua(String textToShare){
         //Log.d(TAG,"Utilities");
         if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP_MR1) {

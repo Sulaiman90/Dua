@@ -11,10 +11,6 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
-           <!-- <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>-->
         </activity>
         <activity
             android:name=".DuaDetailActivity"
@@ -38,14 +34,23 @@
             android:name=".utils.ShareBroadcastReceiver"
             android:exported="true"/>
 
-        <activity android:name=".SplashScreen"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            >
+        <activity
+            android:name=".SplashScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".AboutActivity"
+                  android:parentActivityName=".MainActivity"
+                  android:label="@string/about"
+                >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.salsabeel.dua.MainActivity"/>
         </activity>
     </application>
 
