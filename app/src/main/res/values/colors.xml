@@ -12,4 +12,11 @@
 
     <color name="buttonSelected">@color/colorPrimary</color>
     <color name="buttonUnselected">@color/colorPrimaryDark</color>
+
+
+<!--    // about page-->
+
+    <color name="blue_grey">#263238</color>
+    <color name="green_dark">#0288D1</color>
+    <color name="green_darker">#0288D1</color>
 </resources>

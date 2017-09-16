@@ -59,4 +59,30 @@
     <string name="pref_font_arabic_size">Arabic Font Size</string>
 
 
+    <string name="copy_name">Darul Huda</string>
+    <string name="copyright">Copyright ©</string>
+    <string name="dev_name">ifelse Technologies</string>
+    <string name="developed_by">Developed by</string>
+    <string name="version_label">Version</string>
+    <string name="version_number">1.0</string>
+
+   <!-- <string name="about_app">அல்லாஹ்விற்கே !
+        \n\nஉமர் ஷரீஃப் இப்னு அப்துஸ் ஸலாம்\n(அல்குர்ஆன் மற்றும் நபிமொழிப் பணியாளர்)
+        தாருல் ஹுதா, சென்னை-1.
+        \ndarulhuda.chennai@gmail.com,
+        muftiomar@gmail.com
+        \n+91 98401 74121,\n+91 98844 69044,\n+91 44 25247866</string>-->
+
+    <string name="about_app">அல்லாஹ்விற்கே எல்லாப் புகழும்! முஹம்மது (ஸல்) அவர்கள் மீதும்
+   அவர்களது குடும்பத்தார்,
+       தோழர்கள், அவர்களைப் பின்பற்றும் நல்லோர் அனைவர் மீதும் ஸலவாத்தும் ஸலாமும் உண்டாகட்டும்.
+       \n\n
+        Dummy text.
+       \n\nஎந்நேரமும் உங்கள் கரத்தில் இருக்கவேண்டிய இந்நூலை ஒரு செயலியாக நாங்கள் வடிவமைத்து
+       உங்களுக்குத் தருவதற்கு அல்லாஹ் அருள் புரிந்தான்.\n\nபயன்பெறுங்கள், பிறருக்கு அறிமுகப்படுத்துங்கள்!
+       \n\nஉமர் ஷரீஃப் இப்னு அப்துஸ் ஸலாம்\n(அல்குர்ஆன் மற்றும் நபிமொழிப் பணியாளர்)
+       தாருல் ஹுதா, சென்னை-1.
+       \ndarulhuda.chennai@gmail.com, muftiomar@gmail.com
+       \n+91 98401 74121,\n+91 98844 69044,\n+91 44 25247866</string>
+
 </resources>
