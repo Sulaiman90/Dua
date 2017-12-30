@@ -1,129 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:id="@+id/activity_main"
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.salsabeel.dua.MainActivity">
+    >
 
-    <TextView
-        android:id="@+id/tvCategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/categories"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-       />
-
-    <View
-        android:id="@+id/viewLineMainActivity"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/tvCategory"
-        android:layout_marginBottom="@dimen/mainAct_padding_bottom"
-        android:layout_marginTop="@dimen/mainAct_padding_bottom"
-        android:background="@android:color/black"
-        android:visibility="invisible"
-       />
-    
-    <Button
-        android:id="@+id/quranDua"
+    <RelativeLayout
+        android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/viewLineMainActivity"
-        android:layout_centerHorizontal="true"
-        android:text="@string/quran_dua"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:textColor="@drawable/button_selector"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
-        />
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.salsabeel.dua.MainActivity">
 
-    <View
-        android:id="@+id/viewGreyLine"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/quranDua"
-        android:layout_marginBottom="@dimen/mainAct_padding_bottom"
-        android:layout_marginTop="@dimen/mainAct_padding_bottom"
-        android:background="@android:color/darker_gray"
-        />
-
-    <Button
-        android:id="@+id/hadithDua"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/viewGreyLine"
-        android:layout_centerHorizontal="true"
-        android:text="@string/hadith_dua"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:textColor="@drawable/button_selector"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp"
-        />
-
-    <View
-        android:id="@+id/viewLine2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/hadithDua"
-        android:layout_marginBottom="@dimen/mainAct_padding_bottom"
-        android:layout_marginTop="@dimen/mainAct_padding_bottom"
-        android:background="@android:color/darker_gray"
-        />
-
-   <TextView
-        android:id="@+id/tvViewType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/viewLine2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/mainAct_padding_bottom"
-        android:text="@string/view_type"
-        android:paddingBottom="5dp"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"/>
-
-    <RadioGroup
-        android:id="@+id/rgViewType"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvViewType"
-        >
-
-        <RadioButton
-            android:id="@+id/rbArabicAndTamil"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/categories"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+            />
+
+        <View
+            android:id="@+id/viewLineMainActivity"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/tvCategory"
             android:layout_marginBottom="@dimen/mainAct_padding_bottom"
-            android:onClick="changeDuaView"
-            android:text="@string/pref_label_arabicTamil"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_marginTop="@dimen/mainAct_padding_bottom"
+            android:background="@android:color/black"
+            android:visibility="invisible"
             />
 
-        <RadioButton
-            android:id="@+id/rbArabic"
+        <Button
+            android:id="@+id/quranDua"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/viewLineMainActivity"
+            android:layout_centerHorizontal="true"
+            android:text="@string/quran_dua"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textColor="@drawable/button_selector"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            />
+
+        <View
+            android:id="@+id/viewGreyLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/quranDua"
             android:layout_marginBottom="@dimen/mainAct_padding_bottom"
-            android:onClick="changeDuaView"
-            android:text="@string/pref_label_arabic"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_marginTop="@dimen/mainAct_padding_bottom"
+            android:background="@android:color/darker_gray"
             />
-        <RadioButton
-            android:id="@+id/rbTamil"
+
+        <Button
+            android:id="@+id/hadithDua"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="changeDuaView"
-            android:text="@string/pref_label_tamil"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_below="@id/viewGreyLine"
+            android:layout_centerHorizontal="true"
+            android:text="@string/hadith_dua"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textColor="@drawable/button_selector"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
             />
 
-    </RadioGroup>
+        <View
+            android:id="@+id/viewLine2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/hadithDua"
+            android:layout_marginBottom="@dimen/mainAct_padding_bottom"
+            android:layout_marginTop="@dimen/mainAct_padding_bottom"
+            android:background="@android:color/darker_gray"
+            />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/tvViewType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/viewLine2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/mainAct_padding_bottom"
+            android:text="@string/view_type"
+            android:paddingBottom="5dp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"/>
+
+        <RadioGroup
+            android:id="@+id/rgViewType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvViewType"
+            >
+
+            <RadioButton
+                android:id="@+id/rbArabicAndTamil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/mainAct_padding_bottom"
+                android:onClick="changeDuaView"
+                android:text="@string/pref_label_arabicTamil"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                />
+
+            <RadioButton
+                android:id="@+id/rbArabic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/mainAct_padding_bottom"
+                android:onClick="changeDuaView"
+                android:text="@string/pref_label_arabic"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                />
+            <RadioButton
+                android:id="@+id/rbTamil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="changeDuaView"
+                android:text="@string/pref_label_tamil"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                />
+        </RadioGroup>
+    </RelativeLayout>
+</ScrollView>
+
