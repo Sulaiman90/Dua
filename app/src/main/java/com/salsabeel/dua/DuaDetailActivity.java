@@ -159,8 +159,13 @@ public class DuaDetailActivity extends AppCompatActivity {
 
         results.clear();
 
-       // Log.d(TAG,"totalDuas "+cursor.getCount());
         int duaNo = 0;
+
+        if(category==1){
+            duaNo = 46;
+        }
+
+       // Log.d(TAG,"totalDuas "+cursor.getCount());
 
         if(cursor!=null){
             if(cursor.getCount()!=0 && cursor.moveToFirst()){

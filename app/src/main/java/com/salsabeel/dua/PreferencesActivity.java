@@ -8,7 +8,6 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.preference.PreferenceManager;
@@ -39,7 +38,7 @@ public class PreferencesActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences  = PreferenceManager.getDefaultSharedPreferences(newBase);
         String langPref = sharedPreferences.getString("pref_lang_key","ta");
         Locale newLocale;
-   /*     Log.d(TAG,"langPref: "+langPref);*/
+   /*   Log.d(TAG,"langPref: "+langPref);*/
         newLocale = new Locale(langPref);
         Context context = ContextWrapper.wrap(newBase, newLocale);
         super.attachBaseContext(context);
@@ -54,7 +53,6 @@ public class PreferencesActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     public static class MyPreferenceFragment extends PreferenceFragment implements OnSharedPreferenceChangeListener {
         @Override

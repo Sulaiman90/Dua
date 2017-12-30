@@ -37,7 +37,7 @@ public class Utilities {
     public static final int ARABIC_DUA_REF_FONT_SIZE = 7;
 
     public static final int TRANSLATION_DUA_REF_FONT_SIZE = 5;
-    // this value is used to show the difference b/w the 2 (substract this from preference value)
+    // this value is used to show the difference b/w the 2 (subtract this from preference value)
 
 
     public static void checkVersionAndShareDua(String textToShare){
